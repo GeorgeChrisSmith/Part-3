@@ -29,7 +29,10 @@
         // Q3.3 - Slice and substring
         // =====================
         let sliced = myString.slice(5, 9); // "is a"
-        let substr = anotherString.substring(4, 7); // "the" (skip first 3 spaces)
+        
+        // Trim anotherString to remove leading spaces, then get "the"
+        let substr = anotherString.trim().substring(4, 7); // "the"
+
         console.log("\nQ3.3 - Slice and substring:");
         console.log("Sliced 'is a' from myString:", sliced);
         console.log("Substring 'the' from anotherString:", substr);

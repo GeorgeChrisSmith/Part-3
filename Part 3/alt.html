@@ -7,7 +7,9 @@
 <body>
     <h1>Check the console for output</h1>
     <script>
+        // =====================
         // Step 1: Define strings
+        // =====================
         let myString = "This is a string";
         let anotherString = "   Another string";
         let hello = "Hello there!";
@@ -15,107 +17,73 @@
 
         console.log("Step 1 - Strings defined:", { myString, anotherString, hello, myName });
 
+        // =====================
         // Step 2: Length and characters
+        // =====================
         console.log("Length of myString:", myString.length);
         console.log("First character:", myString.charAt(0));
         console.log("11th character:", myString.charAt(10));
 
+        // =====================
         // Step 3: Slice and substring
-        console.log("Sliced 'is a':", myString.slice(5,9));
-        console.log("Substring 'the':", anotherString.substring(4,7));
+        // =====================
+        let sliced = myString.slice(5, 9); // "is a"
+        let substr = anotherString.trim().substring(3, 6); // "the"
 
+        console.log("\nStep 3 - Slice and substring:");
+        console.log("Sliced 'is a' from myString:", sliced);
+        console.log("Substring from anotherString:", substr);
+
+
+        // =====================
         // Step 4: Change case
+        // =====================
         console.log("myName uppercase:", myName.toUpperCase());
         console.log("myName lowercase:", myName.toLowerCase());
 
+        // =====================
         // Step 5: String manipulations
+        // =====================
         console.log("Concatenated string:", hello.concat(" ", myName));
         console.log("Trimmed anotherString:", anotherString.trim());
-        console.log("Replaced 'is a':", myString.replace("is a",""));
+        console.log("Replaced 'is a':", myString.replace("is a", ""));
         console.log("Split myString:", myString.split(" "));
 
-        console.log("File operations skipped (cannot access filesystem in browser).");
+        // =====================
+        // Step 6: File handling (browser)
+        // =====================
+        function saveTextFile(filename, text) {
+            const blob = new Blob([text], { type: "text/plain" });
+            const link = document.createElement("a");
+            link.download = filename;
+            link.href = window.URL.createObjectURL(blob);
+            link.click();
+        }
 
-        // Function to save a string as a text file
-function saveTextFile(filename, text) {
-    // Create a blob with the text
-    const blob = new Blob([text], { type: "text/plain" });
+        // Example save
+        saveTextFile("output.txt", "This is the content of the output.txt file.");
+        console.log("output.txt has been created and downloaded.");
 
-    // Create a download link
-    const link = document.createElement("a");
-    link.download = filename;
-    link.href = window.URL.createObjectURL(blob);
+        // Function to read a text file selected by the user
+        function readTextFile(event) {
+            const file = event.target.files[0]; 
+            if (!file) return;
 
-    // Simulate click to download
-    link.click();
-}
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const text = e.target.result; 
+                console.log("Contents of the file:");
+                console.log(text); 
+            };
+            reader.readAsText(file);
+        }
 
-// Example usage:
-saveTextFile("output.txt", "This is the data to save in the file.");
-
-// Function to read a text file selected by the user
-function readTextFile(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        const text = e.target.result;
-        console.log("File content:", text);
-    };
-    reader.readAsText(file);
-}
-
-// Example usage:
-// Add an input element to select file
-const input = document.createElement("input");
-input.type = "file";
-input.accept = ".txt";
-input.addEventListener("change", readTextFile);
-document.body.appendChild(input);
-
-// Step 7: Write a text file named output.txt
-
-// String to save
-let dataToSave = "This is the content of the output.txt file.";
-
-// Create a blob
-const blob = new Blob([dataToSave], { type: "text/plain" });
-
-// Create a download link
-const link = document.createElement("a");
-link.download = "output.txt"; // file name
-link.href = window.URL.createObjectURL(blob);
-
-// Trigger the download
-link.click();
-
-console.log("output.txt has been created and downloaded.");
-
-// Step 8: Read the contents of a text file
-
-// Function to handle file selection
-function readTextFile(event) {
-    const file = event.target.files[0]; // get selected file
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        const text = e.target.result; // file content
-        console.log("Contents of the file:");
-        console.log(text); // display content in console
-    };
-    reader.readAsText(file);
-}
-
-// Create a file input element
-const input = document.createElement("input");
-input.type = "file";
-input.accept = ".txt"; // only allow text files
-input.addEventListener("change", readTextFile);
-
-// Add the input to the page so the user can select a file
-document.body.appendChild(input);
+        // Create a single file input element
+        const fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.accept = ".txt";
+        fileInput.addEventListener("change", readTextFile);
+        document.body.appendChild(fileInput);
     </script>
 </body>
 </html>
