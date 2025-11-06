@@ -1,0 +1,5 @@
+// Step 1: Define strings
+        let myString = "This is a string";
+        let anotherString = "   Another string"; // 3 spaces at start
+        let hello = "Hello there!";
+        let myName = "Ethan"; // replace with your first name
