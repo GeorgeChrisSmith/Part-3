@@ -1,0 +1,10 @@
+ // Step 3: Slice and substring
+        // Slice "is a" from myString
+        let sliced = myString.slice(5, 9); // "is a"
+
+        // Substring "the" from anotherString (skip first 3 spaces)
+        let substr = anotherString.trim().substring(4, 7); // "the"
+
+        console.log("\nStep 3 - Slice and substring:");
+        console.log("Sliced from myString:", sliced);
+        console.log("Substring from anotherString:", substr);
