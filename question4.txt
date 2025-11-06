@@ -1,0 +1,4 @@
+// Step 4: Change case
+        // =====================
+        console.log("myName uppercase:", myName.toUpperCase());
+        console.log("myName lowercase:", myName.toLowerCase());
