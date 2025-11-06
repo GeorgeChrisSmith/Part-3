@@ -1,0 +1,12 @@
+   // Step 6 & 7: Write string to file
+const fs = require('fs');
+
+let dataToWrite = "This is the data to save in output.txt";
+
+fs.writeFile("output.txt", dataToWrite, (err) => {
+    if (err) {
+        console.error("Error writing file:", err);
+    } else {
+        console.log("\nStep 6 & 7 - File written successfully!");
+    }
+});
