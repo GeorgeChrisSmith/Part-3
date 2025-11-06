@@ -1,0 +1,22 @@
+// =====================
+        // Q3.8 - Read text file
+        // =====================
+        function readTextFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const text = e.target.result;
+                console.log("Q3.8 - Contents of the file:");
+                console.log(text);
+            };
+            reader.readAsText(file);
+        }
+
+        const input = document.createElement("input");
+        input.type = "file";
+        input.accept = ".txt";
+        input.addEventListener("change", readTextFile);
+        document.body.appendChild(input);
+
+        console.log("\nQ3.8 - Use the file input above to select output.txt and see its contents in the console.");
