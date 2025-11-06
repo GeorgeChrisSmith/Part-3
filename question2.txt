@@ -1,0 +1,5 @@
+// Step 2: Length and characters
+        console.log("\nStep 2 - Length and characters:");
+        console.log("Length of myString:", myString.length);
+        console.log("First character of myString:", myString.charAt(0));
+        console.log("11th character of myString:", myString.charAt(10));
