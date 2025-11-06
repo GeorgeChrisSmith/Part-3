@@ -1,0 +1,5 @@
+console.log("\nStep 5 - Manipulations:");
+        console.log("Concatenated string:", concatenated);
+        console.log("Trimmed anotherString:", trimmed);
+        console.log("Replaced in myString:", replaced);
+        console.log("Split myString:", splitString);
