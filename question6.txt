@@ -1,0 +1,32 @@
+
+<Saving a text file algorithm>
+
+Algorithm SaveStringToFile
+Input: textString, fileName
+Output: A text file downloaded with the given content
+
+1. Start
+2. Create a Blob object from textString with MIME type "text/plain"
+3. Create a temporary <a> element
+4. Set the href attribute of <a> to the URL of the Blob
+5. Set the download attribute of <a> to fileName
+6. Programmatically click the <a> element to trigger the download
+7. End
+
+
+<Reading a text file algorithm>
+
+Algorithm ReadStringFromFile
+Input: User selects a text file
+Output: textString containing the file’s content
+
+1. Start
+2. Create an <input type="file"> element to allow the user to select a file
+3. When the user selects a file:
+    a. Access the first selected file
+    b. Create a FileReader object
+    c. Use FileReader to read the file as text
+    d. When reading is complete, store the content in textString
+    e. Optionally, display or use textString as needed
+4. End
+
